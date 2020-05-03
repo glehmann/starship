@@ -196,6 +196,7 @@ prompt_order = [
     "jobs",
     "battery",
     "time",
+    "exit_code",
     "character",
 ]
 ```
@@ -673,6 +674,28 @@ The module will be shown if any of the following conditions are met:
 
 [erlang]
 symbol = "e "
+```
+
+## Exit Code
+
+The `exit_code` module displays the exit code of the previous command.
+The module will be shown only if the exit code is not `0`.
+
+### Options
+
+| Variable   | Default               | Description                      |
+| ---------- | --------------------- | -------------------------------- |
+| `format`   | `[✖$code](red bold) ` | The format of the module         |
+| `disabled` | `true`                | Disables the `exit_code` module. |
+
+### Example
+
+```toml
+# ~/.config/starship.toml
+
+[exit_code]
+format = "[\\[💣 $code\\]](bg:blue) "
+disabled = false
 ```
 
 ## Git Branch
