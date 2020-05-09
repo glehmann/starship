@@ -1444,10 +1444,19 @@ The module will be shown only if the exit code is not `0`.
 
 ### Options
 
-| Variable   | Default                 | Description                   |
-| ---------- | ----------------------- | ----------------------------- |
-| `format`   | `[✖$status](red bold) ` | The format of the module      |
-| `disabled` | `true`                  | Disables the `status` module. |
+| Variable             | Default                          | Description                                          |
+| -------------------- | -------------------------------- | ---------------------------------------------------- |
+| `format`             | `[✖$pipeline_status](red bold) ` | The format of the module                             |
+| `pipeline_separator` | `|`                              | The string to use to separate the pipeline statuses. |
+| `disabled`           | `true`                           | Disables the `status` module.                        |
+
+The `format` string allows the usage of following variables:
+
+| Variable          | Description                                      |
+| ----------------- | ------------------------------------------------ |
+| `status`          | The last command status                          |
+| `pipeline_status` | The status of each command in the last pipeline. |
+
 
 ### Example
 
