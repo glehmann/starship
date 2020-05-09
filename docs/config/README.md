@@ -1444,18 +1444,29 @@ The module will be shown only if the exit code is not `0`.
 
 ### Options
 
-| Variable             | Default                          | Description                                          |
-| -------------------- | -------------------------------- | ---------------------------------------------------- |
-| `format`             | `[✖$pipeline_status](red bold) ` | The format of the module                             |
-| `pipeline_separator` | `|`                              | The string to use to separate the pipeline statuses. |
-| `disabled`           | `true`                           | Disables the `status` module.                        |
+| Variable             | Default                                              | Description                                                                                                          |
+| -------------------- | ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `format`             | `[$status_symbol$pipeline_status_if_error]($style) ` | The format of the module                                                                                             |
+| `pipeline_separator` | `|`                                                  | The string to use to separate the pipeline statuses.                                                                 |
+| `disabled`           | `true`                                               | Disables the `status` module.                                                                                        |
+| `display_mode`       | `error or mismatch`                                  | In which case the module is displayed. Possible values are `always`, `error`, `pipeline error`, `error or mismatch`. |
+| `success_symbol`     | `✔`                                                  | The symbol to use in case of success.                                                                                |
+| `error_symbol`       | `✖`                                                  | The symbol to use in case of error.                                                                                  |
+| `success_style`      | ``                                                   | The style to use in case of success.                                                                                 |
+| `error_style`        | `red bold`                                           | The style to use in case of error.                                                                                   |
+
+### Variables
 
 The `format` string allows the usage of following variables:
 
-| Variable          | Description                                      |
-| ----------------- | ------------------------------------------------ |
-| `status`          | The last command status                          |
-| `pipeline_status` | The status of each command in the last pipeline. |
+| Variable                   | Description                                                                                               |
+| -------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `status`                   | The last command status.                                                                                  |
+| `pipeline_status`          | The status of each command in the last pipeline.                                                          |
+| `status_if_error`          | The last command status, in case of error, or an empty string in case of success.                         |
+| `pipeline_status_if_error` | The status of each command in the last pipeline, in case of error, or an empty string in case of success. |
+| `status_symbol`            | The symbol defined in `success_symbol` in case of success, the one in `error_symbol` in case of error.    |
+| `style`                    | The style defined in `success_style` in case of success, the one in `error_style` in case of error.       |
 
 
 ### Example
